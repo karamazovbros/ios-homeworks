@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  test
+//  Netology_IB_Instruments
 //
-//  Created by Tatiana Volova on 21.09.2021.
+//  Created by Tatiana Volova on 07.09.2021.
 //
 
 import UIKit
