@@ -34,10 +34,16 @@ class ProfileViewController: UIViewController {
         title = "Profile"
         view.backgroundColor = .lightGray
         view.addSubview(profileHeaderView)
+        view.addSubview(avatar)
+        view.addSubview(buttonStatus)
+        view.addSubview(usernameLabel)
+        view.addSubview(statusTextField)
+        view.addSubview(profileHeaderView)
         addAvatar()
         setUpButtonStatus()
         setUpUsernameLabel()
         setUpStatusTextField()
+        addProfileHeaderView()
     }
     
     override func viewWillLayoutSubviews() {
@@ -45,9 +51,16 @@ class ProfileViewController: UIViewController {
     }
     
     func addAvatar() {
-        view.addSubview(avatar)
         avatar.frame = CGRect(x: 16, y: 110, width: 110, height: 110)
         avatar.layer.cornerRadius = avatar.frame.height/2
+        avatar.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            avatar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            avatar.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
+            avatar.widthAnchor.constraint(equalToConstant: 100),
+            avatar.heightAnchor.constraint(equalTo: avatar.widthAnchor)
+        ])
     }
     
     func setUpButtonStatus() {
@@ -60,7 +73,14 @@ class ProfileViewController: UIViewController {
         buttonStatus.layer.shadowOpacity = 0.7
         buttonStatus.layer.shadowRadius = 4.0
         buttonStatus.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
-        view.addSubview(buttonStatus)
+        buttonStatus.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            buttonStatus.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            buttonStatus.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            buttonStatus.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 20),
+            buttonStatus.heightAnchor.constraint(equalToConstant: 50),
+        ])
     }
     
     @objc func buttonClicked() {
@@ -73,7 +93,12 @@ class ProfileViewController: UIViewController {
         usernameLabel.textColor = .black
         usernameLabel.center = CGPoint(x: 270, y: 130)
         usernameLabel.sizeToFit()
-        view.addSubview(usernameLabel)
+        usernameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            usernameLabel.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: 20),
+            usernameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
+        ])
     }
     
     func setUpStatusTextField() {
@@ -82,6 +107,21 @@ class ProfileViewController: UIViewController {
         statusTextField.textColor = .gray
         statusTextField.center = CGPoint(x: 270, y: 190)
         statusTextField.sizeToFit()
-        view.addSubview(statusTextField)
+        statusTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            statusTextField.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: 20),
+            statusTextField.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 10),
+            statusTextField.heightAnchor.constraint(equalToConstant: 20),
+        ])
     }
+
+    func addProfileHeaderView() {
+        profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        profileHeaderView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: 220).isActive = true
+        profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        profileHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+    }
+
 }
