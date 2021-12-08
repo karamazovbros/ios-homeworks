@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34A706BC273592CF00F9BF6C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A706BB273592CF00F9BF6C /* ProfileHeaderView.swift */; };
 		34CE7495271D7D0700902C6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE7494271D7D0700902C6D /* AppDelegate.swift */; };
 		34CE7497271D7D0700902C6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE7496271D7D0700902C6D /* SceneDelegate.swift */; };
 		34CE7499271D7D0700902C6D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE7498271D7D0700902C6D /* FeedViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34A706BB273592CF00F9BF6C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		34CE7491271D7D0700902C6D /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34CE7494271D7D0700902C6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34CE7496271D7D0700902C6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,7 +28,7 @@
 		34CE749D271D7D0C00902C6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34CE74A0271D7D0C00902C6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34CE74A2271D7D0C00902C6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34CE74A8271E058500902C6D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		34CE74A8271E058500902C6D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Navigation/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
 		34CE74AE2726D3E700902C6D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		34CE74B02727191B00902C6D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		34CE74B22729EB5900902C6D /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34A706BA2735926A00F9BF6C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				34CE74A8271E058500902C6D /* ProfileViewController.swift */,
+				34A706BB273592CF00F9BF6C /* ProfileHeaderView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		34CE7488271D7D0700902C6D = {
 			isa = PBXGroup;
 			children = (
@@ -63,10 +74,10 @@
 			isa = PBXGroup;
 			children = (
 				34CE7494271D7D0700902C6D /* AppDelegate.swift */,
-				34CE74A8271E058500902C6D /* ProfileViewController.swift */,
 				34CE7496271D7D0700902C6D /* SceneDelegate.swift */,
 				34CE74B02727191B00902C6D /* Post.swift */,
 				34CE74AE2726D3E700902C6D /* PostViewController.swift */,
+				34A706BA2735926A00F9BF6C /* Profile */,
 				34CE74B22729EB5900902C6D /* InfoViewController.swift */,
 				34CE7498271D7D0700902C6D /* FeedViewController.swift */,
 				34CE749D271D7D0C00902C6D /* Assets.xcassets */,
@@ -152,6 +163,7 @@
 				34CE74B12727191B00902C6D /* Post.swift in Sources */,
 				34CE7497271D7D0700902C6D /* SceneDelegate.swift in Sources */,
 				34CE74AF2726D3E700902C6D /* PostViewController.swift in Sources */,
+				34A706BC273592CF00F9BF6C /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

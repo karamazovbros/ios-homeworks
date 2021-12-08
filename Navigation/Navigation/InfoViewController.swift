@@ -17,7 +17,9 @@ class InfoViewController: UIViewController {
     
     func setUpButton() {
         button.backgroundColor = .darkGray
-        button.frame = CGRect(x: 50, y: 210, width: 210, height: 45)
+        button.frame = CGRect(x: 100, y: 100, width: 100, height: 35)
+        button.center = view.center
+        button.setTitle("Click here", for: .normal)
         button.addTarget(self, action: #selector(tap), for: .touchUpInside)
         view.addSubview(button)
     }

@@ -24,8 +24,10 @@ class FeedViewController: UIViewController {
     }
     
     func setUpButton() {
+        button.setTitle("Click here", for: .normal)
         button.backgroundColor = .darkGray
         button.frame = CGRect(x: 50, y: 210, width: 210, height: 45)
+        button.center = view.center
         button.addTarget(self, action: #selector(tap), for: .touchUpInside)
         view.addSubview(button)
     }
