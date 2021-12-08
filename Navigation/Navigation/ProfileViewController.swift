@@ -8,41 +8,27 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-   
+    
     let profileHeaderView = ProfileHeaderView()
-    let buttonStatus = UIButton()
-    let usernameLabel = UILabel(frame: CGRect(x: 10, y: 50, width: 230, height: 21))
-    let statusTextField =  UITextField(frame: CGRect(x: 10, y: 50, width: 230, height: 21))
-    
-    private(set) lazy var blueView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        return view
-    }()
-    
-    private(set) lazy var avatar: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .red
-        imageView.image = UIImage(named: "cat1")
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Profile"
         view.backgroundColor = .lightGray
         view.addSubview(profileHeaderView)
+<<<<<<< Updated upstream
         addAvatar()
         setUpButtonStatus()
         setUpUsernameLabel()
         setUpStatusTextField()
+=======
+>>>>>>> Stashed changes
     }
     
     override func viewWillLayoutSubviews() {
         profileHeaderView.frame = view.frame
     }
+<<<<<<< Updated upstream
     
     func addAvatar() {
         view.addSubview(avatar)
@@ -84,4 +70,7 @@ class ProfileViewController: UIViewController {
         statusTextField.sizeToFit()
         view.addSubview(statusTextField)
     }
+=======
+>>>>>>> Stashed changes
 }
+   
