@@ -29,7 +29,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
      
         feedNavigation.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "list.bullet.rectangle") , tag: 0)
         profileNavigation.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill") , tag: 1)
-        
         tabBarVC.viewControllers = [feedNavigation, profileNavigation]
         window?.rootViewController = tabBarVC
         

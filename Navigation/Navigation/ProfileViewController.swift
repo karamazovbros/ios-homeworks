@@ -9,18 +9,24 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    let profileHeaderView = ProfileHeaderView()
+    private let profileHeaderView = ProfileHeaderView()
+    private let profileHeaderViewHeight: CGFloat = 220
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Profile"
         view.backgroundColor = .lightGray
-        view.addSubview(profileHeaderView)
+        addHeader()
     }
     
-    override func viewWillLayoutSubviews() {
-        profileHeaderView.frame = view.frame
+    private func addHeader() {
+        view.addSubview(profileHeaderView)
+        profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            profileHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            profileHeaderView.heightAnchor.constraint(equalToConstant: profileHeaderViewHeight)
+        ])
     }
 }
-    
-    

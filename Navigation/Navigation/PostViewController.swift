@@ -27,7 +27,7 @@ class PostViewController: UIViewController {
         addBarButton()
     }
  
-    func addBarButton() {
+    private func addBarButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Info", style: .plain , target: self, action: #selector(tap))
     }
     
@@ -35,6 +35,4 @@ class PostViewController: UIViewController {
         let infoViewController = InfoViewController()
         present(infoViewController, animated: true, completion: nil)
     }
-    
-    
 }
