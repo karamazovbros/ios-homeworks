@@ -8,24 +8,25 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
+    private let profileHeaderView = ProfileHeaderView()
+    private let profileHeaderViewHeight: CGFloat = 220
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "Profile"
-        self.view.backgroundColor = UIColor.yellow
-        
+        title = "Profile"
+        view.backgroundColor = .lightGray
+        addHeader()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func addHeader() {
+        view.addSubview(profileHeaderView)
+        profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            profileHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            profileHeaderView.heightAnchor.constraint(equalToConstant: profileHeaderViewHeight)
+        ])
     }
-    */
-
 }

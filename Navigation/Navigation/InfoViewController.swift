@@ -8,7 +8,9 @@
 import UIKit
 
 class InfoViewController: UIViewController {
+    
     let button = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(displayP3Red: 0.137, green: 0.150, blue: 0.129, alpha: 1)
@@ -17,10 +19,13 @@ class InfoViewController: UIViewController {
     
     func setUpButton() {
         button.backgroundColor = .darkGray
-        button.frame = CGRect(x: 50, y: 210, width: 210, height: 45)
+        button.frame = CGRect(x: 100, y: 100, width: 100, height: 35)
+        button.center = view.center
+        button.setTitle("Click here", for: .normal)
         button.addTarget(self, action: #selector(tap), for: .touchUpInside)
         view.addSubview(button)
     }
+    
     @IBAction func tap() {
         let alert = UIAlertController(title: "Go back", message: "wtf", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in print("Cancel")}
