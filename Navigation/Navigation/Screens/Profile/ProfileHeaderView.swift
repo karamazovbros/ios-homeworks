@@ -21,7 +21,7 @@ class ProfileHeaderView: UIView {
         imageView.image = UIImage(named: "cat1")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.toAutoLayout()
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 3
         return imageView
@@ -36,7 +36,7 @@ class ProfileHeaderView: UIView {
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowOpacity = 0.7
         button.layer.shadowRadius = 4.0
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.toAutoLayout()
         button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
         return button
     }()
@@ -45,7 +45,7 @@ class ProfileHeaderView: UIView {
         let username = UILabel()
         username.text = "Hipster Cat"
         username.font = UIFont.boldSystemFont(ofSize: 18)
-        username.translatesAutoresizingMaskIntoConstraints = false
+        username.toAutoLayout()
         return username
     }()
     
@@ -53,7 +53,7 @@ class ProfileHeaderView: UIView {
         let textField = UITextField()
         textField.placeholder = "Waiting for something..."
         textField.font = UIFont.systemFont(ofSize: 14)
-        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.toAutoLayout()
         return textField
     }()
     

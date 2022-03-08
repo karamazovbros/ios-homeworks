@@ -9,7 +9,7 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    let post = Post(title: "Post")
+  //  let post = Post(title: "Post")
     
     let firstButton: UIButton = {
         let button = UIButton()
@@ -60,7 +60,7 @@ class FeedViewController: UIViewController {
     }
     
     @objc func tap() {
-        let postViewController = PostViewController(post: post)
-        navigationController?.pushViewController(postViewController, animated: true)
+//        let postViewController = PostViewController(post: post)
+//        navigationController?.pushViewController(postViewController, animated: true)
     }
 }
