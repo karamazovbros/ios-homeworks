@@ -86,7 +86,7 @@ class PostTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             titleLabel.heightAnchor.constraint(equalToConstant: 40),
             
             postImage.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -102,6 +102,7 @@ class PostTableViewCell: UITableViewCell {
             likesLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             likesLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
             likesLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            likesLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -3),
             likesLabel.heightAnchor.constraint(equalToConstant: 60),
             
             viewsLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),

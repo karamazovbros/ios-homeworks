@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController {
                            likes: 137,
                            views: 600))
         posts.append(.init(author: "Aragorn",
-                           description: "The Defender. Aragorn was the son of Arathorn II and Gilraen. He was the last Chieftain of the Dúnedain and a direct descendant through many[note 1] generations of Isildur, the last High King of both Arnor and Gondor. Aragorn would become the greatest Man of his time, leading the Men of the West against Sauron's forces, helping to destroy the One Ring, and reuniting the Kingdoms of Arnor and Gondor.",
+                           description: "The Defender. Aragorn was the son of Arathorn II and Gilraen. He was the last Chieftain of the Dúnedain and a direct descendant through many generations of Isildur, the last High King of both Arnor and Gondor. Aragorn would become the greatest Man of his time, leading the Men of the West against Sauron's forces, helping to destroy the One Ring, and reuniting the Kingdoms of Arnor and Gondor.",
                            image: "Aragorn",
                            likes: 1125,
                            views: 4500))
@@ -88,7 +88,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    private func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> CGFloat {
-        return 400.0
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 550.0
     }
 }
