@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340FC94227E36D3D00AB49F9 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340FC94127E36D3D00AB49F9 /* PhotosTableViewCell.swift */; };
 		3469AD7527CFC5BF000E3B94 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469AD7427CFC5BF000E3B94 /* PostViewController.swift */; };
 		3469AD7A27D36962000E3B94 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469AD7927D36962000E3B94 /* PostTableViewCell.swift */; };
 		3469AD8027D51D1A000E3B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3469AD7F27D51D1A000E3B94 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		340FC94127E36D3D00AB49F9 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		3469AD7427CFC5BF000E3B94 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		3469AD7927D36962000E3B94 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		3469AD7F27D51D1A000E3B94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				34CE74B22729EB5900902C6D /* InfoViewController.swift */,
 				34CE74A8271E058500902C6D /* ProfileViewController.swift */,
+				340FC94127E36D3D00AB49F9 /* PhotosTableViewCell.swift */,
 				34A706BB273592CF00F9BF6C /* ProfileHeaderView.swift */,
 			);
 			path = Profile;
@@ -214,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				340FC94227E36D3D00AB49F9 /* PhotosTableViewCell.swift in Sources */,
 				34CE74A9271E058500902C6D /* ProfileViewController.swift in Sources */,
 				3469AD8627D7E771000E3B94 /* Post.swift in Sources */,
 				34CE7499271D7D0700902C6D /* FeedViewController.swift in Sources */,

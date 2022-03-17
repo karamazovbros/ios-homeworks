@@ -85,10 +85,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
         let post = posts[indexPath.row]
         cell.configure(with:post)
+        self.tableView.rowHeight = UITableView.automaticDimension
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 550.0
+        return tableView.rowHeight
     }
 }
