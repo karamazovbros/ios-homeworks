@@ -15,3 +15,7 @@ struct Post {
     var likes: Int
     var views: Int
 }
+
+struct Photo {
+    var title: String
+}

@@ -9,6 +9,7 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
+    static let reuseId = "PostTableCell"
     
     private var titleLabel: UILabel = {
         let label = UILabel()
@@ -90,14 +91,15 @@ class PostTableViewCell: UITableViewCell {
             titleLabel.heightAnchor.constraint(equalToConstant: 40),
             
             postImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            postImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            postImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            postImage.widthAnchor.constraint(equalTo: widthAnchor),
             postImage.trailingAnchor.constraint(equalTo: trailingAnchor),
             postImage.heightAnchor.constraint(equalTo: postImage.widthAnchor),
 
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             descriptionLabel.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 60),
+   //         descriptionLabel.heightAnchor.constraint(equalTo: descriptionLabel.text),
 
             likesLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             likesLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),

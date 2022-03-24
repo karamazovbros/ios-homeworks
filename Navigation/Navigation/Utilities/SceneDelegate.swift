@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         mainTabBar.modalPresentationStyle = .fullScreen
         
         window?.rootViewController = mainTabBar
-        window?.makeKeyAndVisible()
+        window?.makeKeyAndVisible()        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

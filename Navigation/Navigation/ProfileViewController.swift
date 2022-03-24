@@ -9,6 +9,20 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    enum Sections: CaseIterable {
+        case gallery
+        case feed
+        
+        var title: String {
+            switch self {
+            case .gallery:
+                return "Photos"
+            case .feed:
+                return "Feed"
+            }
+        }
+    }
+
     private let profileHeaderView = ProfileHeaderView()
     private let profileHeaderViewHeight: CGFloat = 220
     private var posts = [Post]()
@@ -21,7 +35,12 @@ class ProfileViewController: UIViewController {
         addHeader()
         populatePosts()
         configureUI()
-        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.reuseId)
+        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: PhotosTableViewCell.reuseId)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - Private
@@ -61,7 +80,7 @@ class ProfileViewController: UIViewController {
     
     private func configureUI() {
         view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.toAutoLayout()
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -77,19 +96,47 @@ class ProfileViewController: UIViewController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return Sections.allCases.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        switch Sections.allCases[section] {
+        case .gallery:
+            return 1
+        case .feed:
+            return posts.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
-        let post = posts[indexPath.row]
-        cell.configure(with:post)
-        self.tableView.rowHeight = UITableView.automaticDimension
-        return cell
+        switch Sections.allCases[indexPath.section] {
+        case .gallery:
+            let cell = tableView.dequeueReusableCell(withIdentifier: PhotosTableViewCell.reuseId, for: indexPath) as! PhotosTableViewCell
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(arrowButtonAction))
+            PhotosTableViewCell.arrowButton.addGestureRecognizer(gesture) 
+            return cell
+        case .feed:
+            let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.reuseId, for: indexPath) as! PostTableViewCell
+            let post = posts[indexPath.row]
+            cell.configure(with:post)
+            return cell
     }
+}
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.rowHeight
+        switch Sections.allCases[indexPath.section] {
+        case .gallery:
+            return 130
+        case .feed:
+            tableView.estimatedRowHeight = 85.0
+            tableView.rowHeight = UITableView.automaticDimension
+            return 600
+        }
+    }
+    
+    @objc func arrowButtonAction() {
+        let photosVC = PhotosViewController()
+        self.navigationController?.pushViewController(photosVC, animated: true)
     }
 }
