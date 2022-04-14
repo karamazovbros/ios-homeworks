@@ -37,6 +37,9 @@ class ProfileViewController: UIViewController {
         configureUI()
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.reuseId)
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: PhotosTableViewCell.reuseId)
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableView.automaticDimension
+        view.insertSubview(tableView, belowSubview: profileHeaderView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,17 +126,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
     }
 }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch Sections.allCases[indexPath.section] {
-        case .gallery:
-            return 130
-        case .feed:
-            tableView.estimatedRowHeight = 85.0
-            tableView.rowHeight = UITableView.automaticDimension
-            return 600
-        }
-    }
     
     @objc func arrowButtonAction() {
         let photosVC = PhotosViewController()

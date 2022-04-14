@@ -50,22 +50,7 @@ class PhotosTableViewCell: UITableViewCell {
     }
     
     private func populatePhotos() {
-        photos.append(.init(title: "IMG0"))
-        photos.append(.init(title: "IMG1"))
-        photos.append(.init(title: "IMG2"))
-        photos.append(.init(title: "IMG3"))
-        photos.append(.init(title: "IMG4"))
-        photos.append(.init(title: "IMG5"))
-        photos.append(.init(title: "IMG6"))
-        photos.append(.init(title: "IMG7"))
-        photos.append(.init(title: "IMG8"))
-        photos.append(.init(title: "IMG9"))
-        photos.append(.init(title: "IMG10"))
-        photos.append(.init(title: "IMG11"))
-        photos.append(.init(title: "IMG12"))
-        photos.append(.init(title: "IMG13"))
-        photos.append(.init(title: "IMG14"))
-        photos.append(.init(title: "IMG15"))
+        photos = Photos.photosNames.map { Photo(title: $0) }
     }
     
     private func initCollectionView() {
@@ -93,17 +78,18 @@ private func configureUI() {
     contentView.addSubview(collectionView)
     
     NSLayoutConstraint.activate([
-        photosLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-        photosLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-        photosLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+        photosLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+        photosLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+        photosLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
         PhotosTableViewCell.arrowButton.centerYAnchor.constraint(equalTo: photosLabel.centerYAnchor),
-        PhotosTableViewCell.arrowButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+        PhotosTableViewCell.arrowButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
 
         collectionView.topAnchor.constraint(equalTo: photosLabel.bottomAnchor, constant: 12),
-        collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-        collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+        collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+        collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+        collectionView.heightAnchor.constraint(equalToConstant: 100)
     ])
     }
 }
@@ -120,4 +106,3 @@ extension PhotosTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
 }
-

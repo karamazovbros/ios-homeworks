@@ -24,22 +24,7 @@ class PhotosViewController: UIViewController {
     }
     
     private func populatePhotos() {
-        photos.append(.init(title: "IMG0"))
-        photos.append(.init(title: "IMG1"))
-        photos.append(.init(title: "IMG2"))
-        photos.append(.init(title: "IMG3"))
-        photos.append(.init(title: "IMG4"))
-        photos.append(.init(title: "IMG5"))
-        photos.append(.init(title: "IMG6"))
-        photos.append(.init(title: "IMG7"))
-        photos.append(.init(title: "IMG8"))
-        photos.append(.init(title: "IMG9"))
-        photos.append(.init(title: "IMG10"))
-        photos.append(.init(title: "IMG11"))
-        photos.append(.init(title: "IMG12"))
-        photos.append(.init(title: "IMG13"))
-        photos.append(.init(title: "IMG14"))
-        photos.append(.init(title: "IMG15"))
+        photos = Photos.photosNames.map { Photo(title: $0) }
 }
     
     private lazy var photosCollection: UICollectionView = {

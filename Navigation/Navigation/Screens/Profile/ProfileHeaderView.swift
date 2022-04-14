@@ -15,6 +15,30 @@ class ProfileHeaderView: UIView {
     private let verticalSpacing: CGFloat = 16
     private let avatarSize: CGFloat = 110
     private let statusButtonHeight: CGFloat = 50
+    var defaultAvatarCenter: CGPoint = CGPoint(x: 0, y: 0)
+    
+    private lazy var plagView: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        view.toAutoLayout()
+        view.backgroundColor = .lightGray
+        view.alpha = 0
+        return view
+    }()
+    
+    private lazy var escButton: UIButton = {
+        let button = UIButton()
+        button.toAutoLayout()
+        button.setImage(UIImage(named: "esc"), for: .normal)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapEscButton))
+        gesture.numberOfTapsRequired = 1
+        gesture.numberOfTouchesRequired = 1
+        button.isUserInteractionEnabled = true
+        button.addGestureRecognizer(gesture)
+        button.alpha = 0
+        button.contentMode = .scaleAspectFit
+        button.setBackgroundImage(UIImage(systemName: "xmark"), for: .selected)
+        return button
+    }()
     
     private(set) lazy var avatar: UIImageView = {
         let imageView = UIImageView()
@@ -24,6 +48,11 @@ class ProfileHeaderView: UIView {
         imageView.toAutoLayout()
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 3
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapOnAvatar))
+        gesture.numberOfTapsRequired = 1
+        gesture.numberOfTouchesRequired = 1
+        imageView.addGestureRecognizer(gesture)
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -81,6 +110,8 @@ class ProfileHeaderView: UIView {
         addSubview(statusButton)
         addSubview(statusTextField)
         addSubview(usernameLabel)
+        addSubview(escButton)
+        addSubview(plagView)
         
         NSLayoutConstraint.activate([
             avatar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: horizontalPadding),
@@ -99,9 +130,51 @@ class ProfileHeaderView: UIView {
             statusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: horizontalPadding),
             statusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -horizontalPadding),
             statusButton.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: verticalSpacing),
-            statusButton.heightAnchor.constraint(equalToConstant: statusButtonHeight)
+            statusButton.heightAnchor.constraint(equalToConstant: statusButtonHeight),
+            
+            plagView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            plagView.topAnchor.constraint(equalTo: topAnchor, constant: 60),
+            plagView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            
+            escButton.trailingAnchor.constraint(equalTo: avatar.trailingAnchor),
+            escButton.topAnchor.constraint(equalTo: avatar.topAnchor)
+            
         ])
         
         avatar.layer.cornerRadius = avatarSize / 2
     }
+    
+    // MARK: - Gestures and Animations
+    
+    @objc func tapOnAvatar() {
+        UIImageView.animate(withDuration: 0.5,
+                            animations: {
+                                self.defaultAvatarCenter = self.avatar.center
+                                self.avatar.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
+                                self.avatar.transform = CGAffineTransform(scaleX: UIScreen.main.bounds.width / self.avatar.frame.width, y: UIScreen.main.bounds.width / self.avatar.frame.width)
+                                self.avatar.layer.cornerRadius = 0
+                                self.plagView.alpha = 0.9
+                            },
+                            completion: { _ in
+                                UIImageView.animate(withDuration: 0.3) {
+                                self.escButton.alpha = 1
+                                }
+            })
+    }
+
+    @objc func tapEscButton() {
+        UIImageView.animate(withDuration: 0.3,
+                            animations: {
+                                self.escButton.alpha = 0
+                            },
+                            completion: { _ in
+        UIImageView.animate(withDuration: 0.5) {
+                                self.avatar.center = self.defaultAvatarCenter
+                                self.avatar.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                self.avatar.layer.cornerRadius = self.avatar.frame.width / 2
+                                self.plagView.alpha = 0
+                                }
+                            })
+    }
+
 }
