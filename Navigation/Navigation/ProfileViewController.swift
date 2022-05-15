@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StorageService
 
 class ProfileViewController: UIViewController {
     
@@ -31,7 +32,14 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Profile"
+        
         view.backgroundColor = .lightGray
+        #if DEBUG
+        view.backgroundColor = .red
+        #else
+        view.backgroundColor = .lightGray
+        #endif
+        
         addHeader()
         populatePosts()
         configureUI()
