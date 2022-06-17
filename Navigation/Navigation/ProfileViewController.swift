@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController {
         
         view.backgroundColor = .lightGray
         #if DEBUG
-        view.backgroundColor = .red
+        view.backgroundColor = .lightGray
         #else
         view.backgroundColor = .lightGray
         #endif

@@ -135,7 +135,7 @@ class ProfileHeaderView: UIView {
         
         statusButton.snp.makeConstraints { constraint in
             constraint.left.equalTo(horizontalPadding)
-            constraint.right.equalTo(horizontalPadding)
+            constraint.right.equalTo(-horizontalPadding)
             constraint.top.equalTo(avatar.snp.bottom).offset(verticalSpacing)
             constraint.height.equalTo(statusButtonHeight)
         }
@@ -150,33 +150,6 @@ class ProfileHeaderView: UIView {
             constraint.right.equalTo(avatar.snp.right)
             constraint.top.equalTo(avatar.snp.top)
         }
-//        NSLayoutConstraint.activate([
-//            avatar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: horizontalPadding),
-//            avatar.topAnchor.constraint(equalTo: topAnchor, constant: verticalSpacing),
-//            avatar.widthAnchor.constraint(equalToConstant: avatarSize),
-//            avatar.heightAnchor.constraint(equalToConstant: avatarSize),
-            
-//            usernameLabel.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: verticalSpacing),
-//            usernameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -horizontalPadding),
-//            usernameLabel.topAnchor.constraint(equalTo: avatar.topAnchor, constant: 11),
-            
-//            statusTextField.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 40),
-//            statusTextField.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: verticalSpacing),
-//            statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -horizontalPadding),
-            
-//            statusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: horizontalPadding),
-//            statusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -horizontalPadding),
-//            statusButton.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: verticalSpacing),
-//            statusButton.heightAnchor.constraint(equalToConstant: statusButtonHeight),
-//
-//            plagView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-//            plagView.topAnchor.constraint(equalTo: topAnchor, constant: 60),
-//            plagView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            
-//            escButton.trailingAnchor.constraint(equalTo: avatar.trailingAnchor),
-//            escButton.topAnchor.constraint(equalTo: avatar.topAnchor)
-//
-//        ])
         
         avatar.layer.cornerRadius = avatarSize / 2
     }

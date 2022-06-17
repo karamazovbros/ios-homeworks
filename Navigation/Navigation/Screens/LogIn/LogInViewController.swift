@@ -7,8 +7,38 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func signIn(login: String, password: String) -> Bool
+}
+
 class LogInViewController: UIViewController {
     
+    weak var delegate: LoginViewControllerDelegate?
+    
+    private let loginTextField = UITextField ()
+    private let passWordTextField = UITextField ()
+    
+    private func checkCredentials () {
+        guard
+            let login = loginTextField.text,
+            let password = passWordTextField.text
+            else { return }
+        
+        guard let isValid = delegate?.signIn(login: login, password: password) else { return }
+        
+        if isValid == true {
+            let profileVC = ProfileViewController()
+            navigationController?.pushViewController(profileVC, animated: false)
+            print("Вход выполнен")
+        }
+        else {
+            let alertVC = UIAlertController(title: "Ошибка", message: "Такого пользователя не существует", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "ОК", style: .default, handler: nil)
+                        alertVC.addAction(action)
+            print("пароль неверный")
+        }
+    }
+
     // MARK: - UI-items
     private var layoutScrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -146,6 +176,7 @@ class LogInViewController: UIViewController {
     @objc func tap() {
         logInTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
+        checkCredentials()
     }
     
     @objc func keyboardShow(_ notification: Notification){

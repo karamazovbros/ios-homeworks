@@ -15,6 +15,10 @@
 		3469AD8027D51D1A000E3B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3469AD7F27D51D1A000E3B94 /* Assets.xcassets */; };
 		3469AD8627D7E771000E3B94 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469AD8527D7E771000E3B94 /* Post.swift */; };
 		34856D51284BEC2300854E9D /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 34856D50284BEC2300854E9D /* iOSIntPackage */; };
+		34856D5328574C9B00854E9D /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34856D5228574C9B00854E9D /* LoginInspector.swift */; };
+		34856D5528574CB300854E9D /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34856D5428574CB300854E9D /* Checker.swift */; };
+		34856D57285A7B6A00854E9D /* LoginFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34856D56285A7B6900854E9D /* LoginFactoryProtocol.swift */; };
+		34856D59285A7D5200854E9D /* MyLoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34856D58285A7D5100854E9D /* MyLoginFactory.swift */; };
 		3487F0A527F387C200723E77 /* Photos and Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3487F0A427F387C200723E77 /* Photos and Arrays.swift */; };
 		34A0F0B6281DDB3D0023C110 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 34A0F0A6281DDB3D0023C110 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34A0F0B9281DDB3D0023C110 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A0F0A4281DDB3D0023C110 /* StorageService.framework */; };
@@ -65,6 +69,10 @@
 		3469AD7927D36962000E3B94 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		3469AD7F27D51D1A000E3B94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3469AD8527D7E771000E3B94 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		34856D5228574C9B00854E9D /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
+		34856D5428574CB300854E9D /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		34856D56285A7B6900854E9D /* LoginFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactoryProtocol.swift; sourceTree = "<group>"; };
+		34856D58285A7D5100854E9D /* MyLoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginFactory.swift; sourceTree = "<group>"; };
 		3487F0A427F387C200723E77 /* Photos and Arrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photos and Arrays.swift"; sourceTree = "<group>"; };
 		34A0F0A4281DDB3D0023C110 /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A0F0A6281DDB3D0023C110 /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
@@ -148,6 +156,10 @@
 			isa = PBXGroup;
 			children = (
 				34ABFE8C276FB78B00CE5BB6 /* LogInViewController.swift */,
+				34856D5228574C9B00854E9D /* LoginInspector.swift */,
+				34856D56285A7B6900854E9D /* LoginFactoryProtocol.swift */,
+				34856D58285A7D5100854E9D /* MyLoginFactory.swift */,
+				34856D5428574CB300854E9D /* Checker.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -194,6 +206,7 @@
 			children = (
 				34CE7493271D7D0700902C6D /* Navigation */,
 				34A0F0A5281DDB3D0023C110 /* StorageService */,
+				6644D19E27C2241400CD8D60 /* Utilities */,
 				34CE7492271D7D0700902C6D /* Products */,
 				B86E5767EF22AE5A931F358E /* Pods */,
 				3689A8ACD1956F75E0387E5B /* Frameworks */,
@@ -213,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				34CE74A2271D7D0C00902C6D /* Info.plist */,
-				6644D19E27C2241400CD8D60 /* Utilities */,
 				3469AD8127D7E4CC000E3B94 /* Screens */,
 			);
 			path = Navigation;
@@ -444,6 +456,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34856D57285A7B6A00854E9D /* LoginFactoryProtocol.swift in Sources */,
+				34856D5328574C9B00854E9D /* LoginInspector.swift in Sources */,
+				34856D59285A7D5200854E9D /* MyLoginFactory.swift in Sources */,
 				340FC94227E36D3D00AB49F9 /* PhotosTableViewCell.swift in Sources */,
 				340FC94727E38F5000AB49F9 /* PhotosCollectionViewCell.swift in Sources */,
 				340FC94527E38F3700AB49F9 /* PhotosViewController.swift in Sources */,
@@ -451,6 +466,7 @@
 				3469AD8627D7E771000E3B94 /* Post.swift in Sources */,
 				34CE7499271D7D0700902C6D /* FeedViewController.swift in Sources */,
 				6644D1A227C2255500CD8D60 /* MainTabBarController.swift in Sources */,
+				34856D5528574CB300854E9D /* Checker.swift in Sources */,
 				3469AD7A27D36962000E3B94 /* PostTableViewCell.swift in Sources */,
 				34ABFE8D276FB78B00CE5BB6 /* LogInViewController.swift in Sources */,
 				3469AD7527CFC5BF000E3B94 /* PostViewController.swift in Sources */,
@@ -718,7 +734,7 @@
 				34A0F0BD281DDB3D0023C110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		34CE748C271D7D0700902C6D /* Build configuration list for PBXProject "Navigation" */ = {
 			isa = XCConfigurationList;
@@ -727,7 +743,7 @@
 				34CE74A4271D7D0C00902C6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		34CE74A5271D7D0C00902C6D /* Build configuration list for PBXNativeTarget "Navigation" */ = {
 			isa = XCConfigurationList;
@@ -736,7 +752,7 @@
 				34CE74A7271D7D0C00902C6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
