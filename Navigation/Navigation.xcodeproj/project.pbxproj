@@ -234,6 +234,7 @@
 		3689A8ACD1956F75E0387E5B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34CE7494271D7D0700902C6D /* AppDelegate.swift */,
 				39B004678DA9252F1966ED5A /* Pods_Navigation.framework */,
 				C190786A010E8D66FA8E3DD5 /* Pods_StorageService.framework */,
 			);
@@ -244,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				34CE749F271D7D0C00902C6D /* LaunchScreen.storyboard */,
-				34CE7494271D7D0700902C6D /* AppDelegate.swift */,
 				3469AD7F27D51D1A000E3B94 /* Assets.xcassets */,
 				34CE7496271D7D0700902C6D /* SceneDelegate.swift */,
 			);

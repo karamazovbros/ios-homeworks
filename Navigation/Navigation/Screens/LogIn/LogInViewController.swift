@@ -15,16 +15,16 @@ class LogInViewController: UIViewController {
     
     weak var delegate: LoginViewControllerDelegate?
     
-    private let loginTextField = UITextField ()
-    private let passWordTextField = UITextField ()
+    var checker = Checker(storage: CloudStorage())
     
     private func checkCredentials () {
         guard
-            let login = loginTextField.text,
-            let password = passWordTextField.text
+            let login = logInTextField.text,
+            let password = passwordTextField.text
             else { return }
         
-        guard let isValid = delegate?.signIn(login: login, password: password) else { return }
+        let isValid = checker.validate(login: login, password: password)
+//        guard let isValid = delegate?.signIn(login: login, password: password) else { return }
         
         if isValid == true {
             let profileVC = ProfileViewController()
@@ -35,6 +35,7 @@ class LogInViewController: UIViewController {
             let alertVC = UIAlertController(title: "Ошибка", message: "Такого пользователя не существует", preferredStyle: .alert)
                         let action = UIAlertAction(title: "ОК", style: .default, handler: nil)
                         alertVC.addAction(action)
+            self.present(alertVC, animated: true, completion: nil)
             print("пароль неверный")
         }
     }
@@ -126,7 +127,7 @@ class LogInViewController: UIViewController {
             break
         }
         
-        button.addTarget(self, action: #selector(goToProfileVC), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tap), for: .touchUpInside)
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10

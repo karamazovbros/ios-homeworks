@@ -10,14 +10,32 @@ import Foundation
 
 class Checker {
     
-    static let shared = Checker()
+    let storage: StorageType
     
-    private init() {}
-    
-    private let login = "Vasily"
-    private let password = "StrongPassword"
+    init(storage: StorageType){
+        self.storage = storage
+    }
+    static let shared = Checker(storage: Storage())
     
     func validate(login: String, password: String) -> Bool {
-        return login == self.login && password == self.password
+        return login == storage.login && password == storage.password
     }
+}
+
+protocol StorageType {
+    
+    var login: String { get }
+    var password: String { get }
+}
+
+class Storage: StorageType {
+    
+    let login: String = "таня"
+    let password: String = "волова"
+}
+
+class CloudStorage: StorageType {
+    
+    let login: String = "таня"
+    let password: String = "волова"
 }
