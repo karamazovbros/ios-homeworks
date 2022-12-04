@@ -13,13 +13,23 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "PhotosCell"
     
-    func configure(with model: Photo) {
+//    func configure(with model: Photo) {
+//        let photoView = UIImageView(frame: bounds)
+//        photoView.contentMode = .scaleAspectFill
+//        photoView.layer.cornerRadius = 6
+//        photoView.toAutoLayout()
+//        photoView.clipsToBounds = true
+//        photoView.image = UIImage(named: model.title)
+//        contentView.addSubview(photoView)
+//    }
+    
+    func configureImage(image: UIImage) {
         let photoView = UIImageView(frame: bounds)
         photoView.contentMode = .scaleAspectFill
         photoView.layer.cornerRadius = 6
         photoView.toAutoLayout()
         photoView.clipsToBounds = true
-        photoView.image = UIImage(named: model.title)
+        photoView.image = image
         contentView.addSubview(photoView)
     }
 }

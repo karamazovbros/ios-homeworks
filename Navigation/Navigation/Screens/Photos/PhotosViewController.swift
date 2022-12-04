@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     
-    private var photos = [Photo]()
+    let facade = ImagePublisherFacade()
+    
+    var photos = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +24,36 @@ class PhotosViewController: UIViewController {
         populatePhotos()
         navigationController?.navigationBar.isHidden = false
         self.title = "Photo Gallery"
+        
+        subscribeToImages()
+        loadImages()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        unsubscribeFromImages()
+    }
+    
+    private func subscribeToImages() {
+        facade.subscribe(self)
+    }
+    
+    
+    private func loadImages() {
+        let userPhotos = Photos.pics.compactMap { $0 }
+        facade.addImagesWithTimer(time: 0.1, repeat: 20, userImages: userPhotos)
     }
     
     private func populatePhotos() {
-        photos = Photos.photosNames.map { Photo(title: $0) }
-}
+        //        photos = Photos.photosNames.map { Photo(title: $0) }
+    }
+    
+    private func unsubscribeFromImages() {
+        print("ОТПИСКА")
+        facade.removeSubscription(for: self)
+        facade.rechargeImageLibrary()
+    }
+    
     
     private lazy var photosCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -47,8 +75,9 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = photosCollection.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.identifier, for: indexPath) as! PhotosCollectionViewCell
-        let photo = photos[indexPath.row]
-        cell.configure(with: photo)
+        //        let photo = photos[indexPath.row]
+        //        cell.configure(with: photo)
+        cell.configureImage(image: photos[indexPath.item])
         return cell
     }
     
@@ -73,7 +102,14 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout, UICollection
     }
 }
 
-extension PhotosViewController {
+extension PhotosViewController: ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+        photos = images
+        photosCollection.reloadData()
+        
+    }
+    
+    
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([

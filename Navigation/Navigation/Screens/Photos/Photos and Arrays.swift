@@ -7,13 +7,22 @@
 //
 
 import Foundation
+import UIKit
 
 class Photos {
     
-   static let photosNames = ["IMG0","IMG1","IMG2","IMG3","IMG4",
-                  "IMG5","IMG6","IMG7","IMG8","IMG9",
-                  "IMG10","IMG11","IMG12","IMG13","IMG14","IMG15"]
+    static let photosNames = ["IMG0","IMG1","IMG2","IMG3","IMG4",
+                              "IMG5","IMG6","IMG7","IMG8","IMG9",
+                              "IMG10","IMG11","IMG12","IMG13","IMG14","IMG15"]
+    
+    public static var pics = [
+        UIImage(named: "киану1"),
+        UIImage(named: "киану2"),
+        UIImage(named: "киану3")
+    ]
 }
+
+
 
 
 

@@ -10,11 +10,11 @@
 		340FC94227E36D3D00AB49F9 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340FC94127E36D3D00AB49F9 /* PhotosTableViewCell.swift */; };
 		340FC94527E38F3700AB49F9 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340FC94427E38F3600AB49F9 /* PhotosViewController.swift */; };
 		340FC94727E38F5000AB49F9 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340FC94627E38F5000AB49F9 /* PhotosCollectionViewCell.swift */; };
+		3455CB2A2936182D00CD2B43 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 3455CB292936182D00CD2B43 /* iOSIntPackage */; };
 		3469AD7527CFC5BF000E3B94 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469AD7427CFC5BF000E3B94 /* PostViewController.swift */; };
 		3469AD7A27D36962000E3B94 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469AD7927D36962000E3B94 /* PostTableViewCell.swift */; };
 		3469AD8027D51D1A000E3B94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3469AD7F27D51D1A000E3B94 /* Assets.xcassets */; };
 		3469AD8627D7E771000E3B94 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469AD8527D7E771000E3B94 /* Post.swift */; };
-		34856D51284BEC2300854E9D /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 34856D50284BEC2300854E9D /* iOSIntPackage */; };
 		34856D5328574C9B00854E9D /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34856D5228574C9B00854E9D /* LoginInspector.swift */; };
 		34856D5528574CB300854E9D /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34856D5428574CB300854E9D /* Checker.swift */; };
 		34856D57285A7B6A00854E9D /* LoginFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34856D56285A7B6900854E9D /* LoginFactoryProtocol.swift */; };
@@ -110,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34856D51284BEC2300854E9D /* iOSIntPackage in Frameworks */,
+				3455CB2A2936182D00CD2B43 /* iOSIntPackage in Frameworks */,
 				34A0F0B9281DDB3D0023C110 /* StorageService.framework in Frameworks */,
 				974D6318FD50EECFE331FB7D /* Pods_Navigation.framework in Frameworks */,
 			);
@@ -313,7 +313,7 @@
 			);
 			name = Navigation;
 			packageProductDependencies = (
-				34856D50284BEC2300854E9D /* iOSIntPackage */,
+				3455CB292936182D00CD2B43 /* iOSIntPackage */,
 			);
 			productName = Navigation;
 			productReference = 34CE7491271D7D0700902C6D /* Navigation.app */;
@@ -348,7 +348,7 @@
 			);
 			mainGroup = 34CE7488271D7D0700902C6D;
 			packageReferences = (
-				34856D4F284BEC2300854E9D /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				3455CB282936182D00CD2B43 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
 			);
 			productRefGroup = 34CE7492271D7D0700902C6D /* Products */;
 			projectDirPath = "";
@@ -505,7 +505,7 @@
 			baseConfigurationReference = 564923993F41F96149113F6E /* Pods-StorageService.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -537,7 +537,7 @@
 			baseConfigurationReference = 46B4E09FD90B4D14D773B519 /* Pods-StorageService.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -757,20 +757,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		34856D4F284BEC2300854E9D /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+		3455CB282936182D00CD2B43 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.3;
+				branch = imagepublisher;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		34856D50284BEC2300854E9D /* iOSIntPackage */ = {
+		3455CB292936182D00CD2B43 /* iOSIntPackage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 34856D4F284BEC2300854E9D /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+			package = 3455CB282936182D00CD2B43 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
 			productName = iOSIntPackage;
 		};
 /* End XCSwiftPackageProductDependency section */

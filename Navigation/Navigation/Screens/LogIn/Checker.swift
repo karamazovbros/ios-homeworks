@@ -30,12 +30,12 @@ protocol StorageType {
 
 class Storage: StorageType {
     
-    let login: String = "таня"
-    let password: String = "волова"
+    let login: String = ""
+    let password: String = ""
 }
 
 class CloudStorage: StorageType {
     
-    let login: String = "таня"
-    let password: String = "волова"
+    let login: String = ""
+    let password: String = ""
 }
